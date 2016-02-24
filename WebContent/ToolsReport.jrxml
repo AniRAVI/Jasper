@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-02-23T12:21:22 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ToolsReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f0d47275-ae2e-433f-995b-1f6651d2b38b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataset1" uuid="612a951e-fa98-400a-803b-f3e8892f432d"/>
+	<subDataset name="Report" uuid="54b4a2e0-9b5d-44d4-8db1-0207ca16433e">
+		<queryString language="SQL">
+			<![CDATA[select email, userid,name,user_role,user_sub_role,count(cid) as cid from (select a.userid,a.name,a.email,a.user_role,a.user_sub_role,b.cid from TRAINING_TOOL_USERS a left outer join ResultRecord b on (a.email=b.userid) order by userid) group by email, userid,name,user_role,user_sub_role order by Name]]>
+		</queryString>
+		<field name="USERID" class="java.math.BigDecimal"/>
+		<field name="NAME" class="java.lang.String"/>
+		<field name="USER_ROLE" class="java.lang.String"/>
+		<field name="USER_SUB_ROLE" class="java.lang.String"/>
+		<field name="CID" class="java.math.BigDecimal"/>
+		<group name="USERID">
+			<groupExpression><![CDATA[$F{USERID}]]></groupExpression>
+		</group>
+		<group name="NAME">
+			<groupExpression><![CDATA[$F{NAME}]]></groupExpression>
+		</group>
+		<group name="USER_ROLE">
+			<groupExpression><![CDATA[$F{USER_ROLE}]]></groupExpression>
+		</group>
+		<group name="USER_SUB_ROLE">
+			<groupExpression><![CDATA[$F{USER_SUB_ROLE}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="WithEmail" uuid="07f0d0e1-823b-4267-aa4b-0c2996983868">
+		<queryString language="SQL">
+			<![CDATA[SELECT email,
+userid,
+  name,
+  user_role,
+  user_sub_role,
+  COUNT(cid) AS cid
+FROM
+  (SELECT a.userid,
+    a.name,
+    a.email,
+    a.user_role,
+    a.user_sub_role,
+    b.cid
+  FROM TRAINING_TOOL_USERS a
+  LEFT OUTER JOIN ResultRecord b
+  ON (a.email=b.userid)
+  ORDER BY userid
+  )
+GROUP BY email,
+userid,
+  name,
+  user_role,
+  user_sub_role
+ORDER BY Name]]>
+		</queryString>
+		<field name="EMAIL" class="java.lang.String"/>
+		<field name="USERID" class="java.math.BigDecimal"/>
+		<field name="NAME" class="java.lang.String"/>
+		<field name="USER_ROLE" class="java.lang.String"/>
+		<field name="USER_SUB_ROLE" class="java.lang.String"/>
+		<field name="CID" class="java.math.BigDecimal"/>
+		<group name="EMAIL">
+			<groupExpression><![CDATA[$F{EMAIL}]]></groupExpression>
+		</group>
+		<group name="USERID">
+			<groupExpression><![CDATA[$F{USERID}]]></groupExpression>
+		</group>
+		<group name="NAME">
+			<groupExpression><![CDATA[$F{NAME}]]></groupExpression>
+		</group>
+		<group name="USER_SUB_ROLE">
+			<groupExpression><![CDATA[$F{USER_SUB_ROLE}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT email,
+userid,
+  name,
+  user_role,
+  user_sub_role,
+  COUNT(cid) AS cid
+FROM
+  (SELECT a.userid,
+    a.name,
+    a.email,
+    a.user_role,
+    a.user_sub_role,
+    b.cid
+  FROM TRAINING_TOOL_USERS a
+  LEFT OUTER JOIN ResultRecord b
+  ON (a.email=b.userid)
+  ORDER BY userid
+  )
+GROUP BY email,
+userid,
+  name,
+  user_role,
+  user_sub_role
+ORDER BY Name]]>
+	</queryString>
+	<field name="EMAIL" class="java.lang.String"/>
+	<field name="USERID" class="java.math.BigDecimal"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="USER_ROLE" class="java.lang.String"/>
+	<field name="USER_SUB_ROLE" class="java.lang.String"/>
+	<field name="CID" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="57" splitType="Stretch">
+			<componentElement>
+				<reportElement x="397" y="17" width="157" height="36" uuid="fd7e52a5-13eb-4550-a8de-b74ba473f69f"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="43b05052-07e4-4098-8db7-b7edd7584cef">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="36" width="157">
+						<textField pattern="dd/MM/yyyy">
+							<reportElement x="55" y="0" width="100" height="20" uuid="544cd233-4476-49f1-b04e-4004b10137fe"/>
+							<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="1" y="0" width="52" height="20" uuid="dc8c78c1-3a41-4591-a282-52f388327dd0"/>
+							<text><![CDATA[Date:-]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="1" y="16" width="52" height="20" uuid="fc76e542-7bed-41bf-9600-a06a137031c1"/>
+							<text><![CDATA[Page No:-]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="57" y="16" width="63" height="20" uuid="1b45b5d0-e2ee-44ab-9200-782ab5bca139"/>
+							<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+						</textField>
+						<textField evaluationTime="Report">
+							<reportElement x="102" y="16" width="20" height="20" uuid="50cc56b9-e6b0-4aa2-a8ca-0a5214da4d9b"/>
+							<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement x="190" y="0" width="184" height="20" uuid="1b052b8e-6dbf-4c81-95ad-4bccf048c3d9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Training Tool Report]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 4" style="table 4" x="2" y="5" width="552" height="35" uuid="c383fbc8-6aab-468d-a5eb-36939c6f40fb"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="WithEmail" uuid="67e62cfb-f9e1-47a9-b656-6febbd40d12a">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="15ef273b-63d9-4a0c-b4bc-9f424feaf1aa">
+						<jr:columnHeader style="table 4_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="15" uuid="3e46f3df-0d5c-401e-be26-4b21e9dc0a66"/>
+								<text><![CDATA[  Att Id]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="3e46e2a6-0494-4d19-bd61-8ecf7f59751c"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{EMAIL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f6ca3494-f454-4847-8b58-648754ce96b4">
+						<jr:columnHeader style="table 4_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="15" uuid="b33d0c21-df33-4bec-8a66-ace3aa22a1c2"/>
+								<text><![CDATA[NAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="04d16f41-38f0-4aea-83fb-4381f5c1a4b0"/>
+								<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="10ad5485-4023-4360-8c52-9de39467cec3">
+						<jr:columnHeader style="table 4_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="15" uuid="e73021ca-07b6-4d47-adcf-ce62f78d08a2"/>
+								<text><![CDATA[  User Role]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="41c0a615-352a-4e76-9288-9986370b83f5"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{USER_ROLE}.equals("Team Lead") ? "T L" : "T M"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="73" uuid="337ece47-99a9-495d-886d-beeae68a52cc">
+						<jr:columnHeader style="table 4_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="73" height="15" uuid="d2e5cb9a-7263-4e44-94c9-969a8e1d0e92"/>
+								<text><![CDATA[  User Sub Role]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="73" height="20" uuid="065ba342-bf1a-4f95-9bb7-8a726f8b6f26"/>
+								<textFieldExpression><![CDATA[$F{USER_SUB_ROLE}.equals("Entry Level") ? "E L" : $F{USER_SUB_ROLE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="77" uuid="b71868c4-93af-4156-932f-7c10829c45df">
+						<jr:columnHeader style="table 4_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="77" height="15" uuid="7e82555e-214f-49bf-b817-c65a9266b963"/>
+								<text><![CDATA[Progress]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="77" height="20" uuid="f43dda2f-afad-4d72-bbe2-a9359f74f7bf"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{CID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="78" uuid="abbb7994-52d5-4b22-bb68-cb61283a3439">
+						<jr:columnHeader style="table 4_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="77" height="15" uuid="fab13f9a-78a4-47ea-af7b-06b5119f4ffc"/>
+								<text><![CDATA[Completed]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="77" height="20" uuid="63911b0a-c9dd-48c5-99a0-c513fb1bfa94"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{CID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="71" uuid="12f3cf55-99df-488a-a9bd-3589974b8045">
+						<jr:columnHeader style="table 4_CH" height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="68" height="15" uuid="f81fcad3-b5c4-4735-83fc-457afa3da6dd"/>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="68" height="20" uuid="8f728d20-662a-4139-8976-27c93fff157a"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{CID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
